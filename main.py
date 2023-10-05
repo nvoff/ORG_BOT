@@ -14,7 +14,6 @@ dp = Dispatcher(bot, no_throttle_error=True)
 
 statuses = {}
 
-
 @dp.message_handler(commands=['start'])
 async def start(message: types.Message):
     await bot.send_message(
@@ -22,7 +21,6 @@ async def start(message: types.Message):
         text='Добро пожаловать в *ORG Бота*!\n\nС его помощью вы можете отправить заявку сотрудникам организационно-технического отдела',
         #        parse_mode=types.ParseMode.MARKDOWN
     )
-
 
 @dp.message_handler(content_types=types.ContentType.ANY)
 async def message(message: types.Message, album: List[types.Message]=[]):
@@ -83,7 +81,6 @@ async def message(message: types.Message, album: List[types.Message]=[]):
                         text="Вопрос от специалиста:\n\n_" + message.text + "_",
                         #                       parse_mode=types.ParseMode.MARKDOWN
                     )
-
 
 @dp.callback_query_handler(lambda c: c.data.startswith('adm_act_'))
 async def inprogress(callback_query: types.CallbackQuery):
